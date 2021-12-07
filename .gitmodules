@@ -1,0 +1,12 @@
+[submodule "redisent-terraform"]
+	path = redisent-terraform
+	url = git@github.com:jondelan/redisent-terraform.git
+[submodule "redisent-packer"]
+	path = redisent-packer
+	url = https://github.com/jondelan/redisent-packer
+[submodule "redisent-helm"]
+	path = redisent-helm
+	url = git@github.com:jondelan/redisent-helm.git
+[submodule "redisent-ansible"]
+	path = redisent-ansible
+	url = git@github.com:jondelan/redisent-ansible.git
