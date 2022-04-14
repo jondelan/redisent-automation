@@ -67,6 +67,28 @@ aws configure
 
 ## Terraforming Redis
 
+```
+# crdb1
+cd redisent-terraform/crdb1
+terraform apply
+
+# crdb2
+cd redisent-terraform/crdb2
+terraform apply
+
+# crdb3
+cd redisent-terraform/crdb3
+terraform apply
+
+# crdb4
+cd redisent-terraform/crdb4
+terraform apply
+
+# crdb5
+cd redisent-terraform/crdb5
+terraform apply
+```
+
 ## Installing Redis with Ansible
 
 ## Terraforming AWS EKS kubernetes
