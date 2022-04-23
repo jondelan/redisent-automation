@@ -1,0 +1,7 @@
+ansible_user: centos
+ansible_become: true
+
+
+minikube_package_name: minikube-latest.x86_64.rpm
+minikube_url: https://storage.googleapis.com/minikube/releases/latest
+minikube_download_url: "{{minikube_url}}/{{minikube_package_name}}"

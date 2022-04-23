@@ -1,0 +1,14 @@
+- name: "start minikube"
+  hosts: minikube
+  become_user: centos
+  vars_files:
+    - vars.yml
+  tasks:
+    - name: "start minikube"
+      shell:
+        cmd: "minikube start --insecure-registry \"10.0.0.0/24\" --listen-address=0.0.0.0 --apiserver-ips={{ ansible_default_ipv4.address }}"
+
+    - name: "enable ingress"
+      shell:
+        cmd: "minikube addons enable ingress"
+

@@ -91,6 +91,32 @@ terraform apply
 
 ## Installing Redis with Ansible
 
+# provision crdb1
+cd redisent-ansible
+ansible-playbook -i inventory/redisent-aws-inventory/crdb1 -u centos playbooks/install.yml
+ansible-playbook -i inventory/redisent-aws-inventory/crdb1 -u centos playbooks/create-crdb.yml
+
+# provision crdb2
+cd redisent-ansible
+ansible-playbook -i inventory/redisent-aws-inventory/crdb2 -u centos playbooks/install.yml
+ansible-playbook -i inventory/redisent-aws-inventory/crdb2 -u centos playbooks/join-crdb.yml
+
+# provision crdb3
+cd redisent-ansible
+ansible-playbook -i inventory/redisent-aws-inventory/crdb3 -u centos playbooks/install.yml
+ansible-playbook -i inventory/redisent-aws-inventory/crdb3 -u centos playbooks/join-crdb.yml
+
+# provision crdb4
+cd redisent-ansible
+ansible-playbook -i inventory/redisent-aws-inventory/crdb4 -u centos playbooks/install.yml
+ansible-playbook -i inventory/redisent-aws-inventory/crdb4 -u centos playbooks/join-crdb.yml
+
+# provision crdb5
+cd redisent-ansible
+ansible-playbook -i inventory/redisent-aws-inventory/crdb4 -u centos playbooks/install.yml
+ansible-playbook -i inventory/redisent-aws-inventory/crdb4 -u centos playbooks/join-crdb.yml
+```
+
 ## Terraforming AWS EKS kubernetes
 
 ## Installing monitoring charts with Helm and kubectl

@@ -1,0 +1,40 @@
+- name: "install docker"
+  hosts: minikube
+  vars_files:
+    - vars.yml
+  tasks:
+
+    - name: "Install yum-utils"
+      yum:
+        name: 
+          - "yum-utils"
+
+    - name: "Add docker yum repository"
+      yum_repository:
+        name: docker
+        description: Docker yum repo
+        baseurl: https://download.docker.com/linux/centos/7/$basearch/stable
+        gpgkey: https://download.docker.com/linux/centos/gpg
+
+    - name: "yum clean"
+      shell:
+        cmd: "yum clean all"
+
+    - name: "Install docker"
+      yum:
+        name: 
+          - "docker-ce"
+#          - "docker-ce-cli"
+#          - "containerd.io"
+
+        state: present
+
+    - name: Add centos user to docker group
+      shell:
+        cmd: "groupadd docker; usermod -aG docker centos"
+
+    - name: start docker
+      ansible.builtin.systemd:
+        state: started
+        name: docker
+

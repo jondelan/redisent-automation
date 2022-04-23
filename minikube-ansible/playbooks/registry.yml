@@ -1,0 +1,10 @@
+- name: "start registry"
+  hosts: minikube
+  become_user: centos
+  vars_files:
+    - vars.yml
+  tasks:
+    - name: "start registry"
+      shell:
+        cmd: "docker run -d -p 5000:5000 --restart=always --volume ~/.registry/storage:/var/lib/registry registry:2"
+

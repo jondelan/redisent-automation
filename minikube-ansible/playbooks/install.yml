@@ -1,0 +1,16 @@
+- name: "install minikube"
+  hosts: minikube
+  vars_files:
+    - vars.yml
+  tasks:
+    - name: "Install minikube using yum"
+      yum:
+        name: "{{ minikube_download_url }}"
+        state: present
+
+    - name: "Add bash alias for kubectl"
+      copy:
+        content: "#!/bin/bash\nminikube kubectl -- $@"
+        dest: "/usr/local/bin/kubectl"
+        mode: 0755
+        owner: centos
